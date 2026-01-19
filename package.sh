@@ -5,13 +5,23 @@ echo "📦 Empaquetage de BetterScoDoc..."
 # S'assurer d'avoir la dernière version compilée
 npm run build
 
-# Créer un fichier zip
-if [ -f "BetterScoDoc.zip" ]; then
-    rm BetterScoDoc.zip
+# Récupérer la version depuis manifest.json
+VERSION=$(grep '"version":' public/manifest.json | cut -d '"' -f 4)
+ZIP_NAME="BetterScoDoc-v$VERSION.zip"
+RELEASE_DIR="releases"
+
+# Créer le dossier releases s'il n'existe pas
+mkdir -p $RELEASE_DIR
+
+# Supprimer l'ancien zip s'il existe dans le dossier (optionnel, ou on garde l'historique)
+if [ -f "$RELEASE_DIR/$ZIP_NAME" ]; then
+    rm "$RELEASE_DIR/$ZIP_NAME"
 fi
 
+echo "🏷️  Version détectée : $VERSION"
+
 cd dist
-zip -r ../BetterScoDoc.zip *
+zip -r "../$RELEASE_DIR/$ZIP_NAME" *
 cd ..
 
-echo "✅ BetterScoDoc.zip créé avec succès !"
+echo "✅ $ZIP_NAME créé avec succès dans le dossier $RELEASE_DIR/ !"
