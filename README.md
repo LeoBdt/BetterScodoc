@@ -17,16 +17,32 @@
 
 ## 🚀 Installation
 
-Cette extension n'est pas encore disponible sur le Chrome Web Store. Vous devez l'installer manuellement (mode développeur).
+### 🌐 Chrome / Brave / Edge (Recommandé)
 
-1.  Allez dans les [Releases](https://github.com/votre-pseudo/BetterScoDoc/releases) et téléchargez le fichier `BetterScoDoc.zip` de la dernière version.
-2.  Décompressez l'archive `BetterScoDoc.zip`.
-3.  Ouvrez Chrome (ou un navigateur basé sur Chromium comme Brave, Edge).
-4.  Allez à l'adresse `chrome://extensions`.
-5.  Activez le **Mode développeur** (en haut à droite).
-6.  Cliquez sur **Charger l'extension non empaquetée** (Load unpacked).
-7.  Sélectionnez le dossier décompressé (qui contient `manifest.json`).
-8.  Rendez-vous sur votre ENT ScoDoc !
+1.  Allez dans les [Releases](https://github.com/LeoBdt/BetterScoDoc/releases) et téléchargez le fichier `BetterScoDoc.zip` (pas le code source).
+2.  Décompressez l'archive.
+3.  Ouvrez votre navigateur et allez sur `chrome://extensions`.
+4.  Activez le **Mode développeur** (en haut à droite).
+5.  Cliquez sur **Charger l'extension non empaquetée** (Load unpacked).
+6.  Sélectionnez le dossier décompressé `BetterScoDoc`.
+7.  Rendez-vous sur ScoDoc !
+
+### 🍎 Safari (macOS)
+
+1.  Téléchargez `BetterScoDoc-macOS.zip` dans les Releases.
+2.  Décompressez l'archive pour obtenir `BetterScoDoc.app`.
+3.  Déplacez l'application dans votre dossier **Applications**.
+4.  Lancez l'application.
+5.  Cliquez sur le bouton pour ouvrir les préférences Safari et activez l'extension.
+
+**⚠️ "L'application est endommagée" ?**
+Comme l'application n'est pas signée par Apple (ce qui est payant), vous aurez probablement ce message d'erreur. Pas de panique, voici comment l'ouvrir :
+1.  Ouvrez l'application **Terminal** sur votre Mac.
+2.  Copiez-collez cette commande et validez :
+    ```bash
+    xattr -cr /Applications/BetterScoDoc.app
+    ```
+3.  Relancez l'application, ça marche !
 
 ## 🛠️ Développement
 
@@ -52,11 +68,16 @@ Pour contribuer ou modifier l'extension :
     ```bash
     npm run build
     ```
-    Le dossier `dist/` contiendra l'extension compilée prête à être chargée.
+    Le dossier `dist/` contiendra l'extension compilée prête à être chargée sur Chrome.
 
-5.  **Empaqueter le ZIP** :
+5.  **Empaqueter le ZIP Chrome** :
     ```bash
     ./package.sh
+    ```
+    
+6.  **Convertir pour Safari** (Nécessite Xcode) :
+    ```bash
+    xcrun safari-web-extension-converter dist --project-location ../BetterScoDoc_Safari --app-name BetterScoDoc --bundle-identifier com.leobidot.betterscodoc
     ```
 
 ## 💻 Technologies
