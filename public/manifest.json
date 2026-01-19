@@ -1,0 +1,33 @@
+{
+    "manifest_version": 3,
+    "name": "BetterScoDoc",
+    "version": "1.0.10",
+    "description": "Une interface moderne pour ScoDoc",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://wscodoc.iutbeziers.fr/*"
+            ],
+            "js": [
+                "assets/content.js"
+            ],
+            "css": [
+                "assets/content.css"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "host_permissions": [
+        "https://wscodoc.iutbeziers.fr/*"
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "assets/*"
+            ],
+            "matches": [
+                "https://wscodoc.iutbeziers.fr/*"
+            ]
+        }
+    ]
+}
