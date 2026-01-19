@@ -33,7 +33,8 @@
 2.  Décompressez l'archive pour obtenir `BetterScoDoc.app`.
 3.  Déplacez l'application dans votre dossier **Applications**.
 4.  Lancez l'application.
-5.  Cliquez sur le bouton pour ouvrir les préférences Safari et activez l'extension.
+5.  Dévelopemment > Réglages Développeurs > Activer les extensions non signées
+6.  Cliquez sur le bouton pour ouvrir les préférences Safari et activez l'extension.
 
 **⚠️ "L'application est endommagée" ?**
 Comme l'application n'est pas signée par Apple (ce qui est payant), vous aurez probablement ce message d'erreur. Pas de panique, voici comment l'ouvrir :
