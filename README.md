@@ -7,7 +7,7 @@
   <h3>Page de profil</h3>
   <img src="./assets/betterscodoc_profile.png" width="85%" alt="Page de profil" />
 </div>
-
+ <br/><br/>
 **BetterScoDoc** est une extension de navigateur qui transforme et modernise complètement l'interface de ScoDoc (logiciel de gestion de scolarité). Elle offre un design épuré, moderne et réactif pour une meilleure expérience utilisateur.
 
 ## ✨ Fonctionnalités
