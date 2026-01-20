@@ -1,9 +1,12 @@
 # BetterScoDoc 🎓
 
-<p align="center">
-  <img src="./assets/betterscodoc_home.png" width="45%" alt="BetterScoDoc Home" />
-  <img src="./assets/betterscodoc_profile.png" width="45%" alt="BetterScoDoc Profile" />
-</p>
+<div align="center">
+  <h3>Page d'accueil</h3>
+  <img src="./assets/betterscodoc_home.png" width="85%" alt="Page d'accueil" />
+  <br/><br/>
+  <h3>Page de profil</h3>
+  <img src="./assets/betterscodoc_profile.png" width="85%" alt="Page de profil" />
+</div>
 
 **BetterScoDoc** est une extension de navigateur qui transforme et modernise complètement l'interface de ScoDoc (logiciel de gestion de scolarité). Elle offre un design épuré, moderne et réactif pour une meilleure expérience utilisateur.
 
