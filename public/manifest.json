@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "BetterScoDoc",
-    "version": "1.0.10",
+    "version": "1.1.0",
     "description": "Une interface moderne pour ScoDoc",
     "content_scripts": [
         {

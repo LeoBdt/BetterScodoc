@@ -13,16 +13,20 @@
 
 ## ✨ Fonctionnalités
 
-*   **Interface Moderne** : Un design repensé avec une esthétique "Glassmorphism", des cartes épurées et des animations fluides.
-*   **Thèmes Sombre & Clair** : Support natif du mode sombre (par défaut) et d'un mode clair élégant, avec bascule facile.
-*   **Tableau de Bord Amélioré** :
-    *   Visualisation claire des moyennes et des rangs.
-    *   Statistiques d'absences en un coup d'œil.
-    *   Cartes colorées pour les UEs et les Ressources.
-    *   Graphiques de répartition des notes (histogrammes).
-*   **Navigation Fluide** : Barre latérale intuitive pour accéder rapidement aux notes, absences et profil.
-*   **Détails des Notes** : Cliquez sur n'importe quelle évaluation pour voir le détail, le coefficient, et la position par rapport à la promo.
-*   **Calcul de Moyenne** : Affichage clair des moyennes par UE et par Ressource.
+*   **Interface Moderne et Fluide** : Un design repensé avec une esthétique "Glassmorphism", des cartes épurées et des animations soignées.
+*   **Thèmes Sombre & Clair** : Support natif du mode sombre (activé par défaut) et d'un mode clair élégant, avec bascule facile.
+*   **Tableau de Bord Enrichi** :
+    *   **Statistiques Complètes** : Moyenne générale, rang dans la promo, ECTS acquis et absences.
+    *   **Décision Année/Semestre** : Affichage clair de la décision du jury (Admis, Ajourné, etc.).
+    *   **Graphique Comparatif** : Comparez vos moyennes par UE avec celles de la promotion en un clin d'œil.
+*   **Détail des Formations** :
+    *   **Visualisation des UEs** : Statut de validation (Admis/Ajourné) et moyennes visibles directement.
+    *   **SAÉ & Portfolio** : Section dédiée pour suivre vos Situations d'Apprentissage et d'Évaluation.
+    *   **Notes Détaillées** : Cliquez sur n'importe quelle ressource pour voir le détail des évaluations, les coefficients et les statistiques de la promo.
+*   **Export PDF** : Générez un bulletin propre et formaté pour l'impression ou l'archivage en un clic.
+*   **Notifications de Notes** : Soyez alerté des nouvelles notes directement lors de l'ouverture (badge "Nouveau").
+*   **Navigation Intuitive** : Barre latérale avec sélecteur de semestre amélioré pour naviguer dans votre historique.
+
 
 ## 🚀 Installation
 

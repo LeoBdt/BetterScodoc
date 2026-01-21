@@ -112,7 +112,7 @@ export function ProfileView({ data, photoUrl, allSemesters }) {
                     </div>
                     <div className="profile-item">
                         <span className="profile-item-label">Code postal</span>
-                        <span className="profile-item-value">{etudiant?.codepostaldomicile}</span>
+                        <span className="profile-item-value">{etudiant?.code_postal || etudiant?.codepostaldomicile || '-'}</span>
                     </div>
                     <div className="profile-item">
                         <span className="profile-item-label">Ville</span>

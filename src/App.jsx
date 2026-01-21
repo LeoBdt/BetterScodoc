@@ -4,7 +4,9 @@ import { Sidebar } from './components/Sidebar';
 import { Dashboard } from './components/Dashboard';
 import { AttendanceView } from './components/AttendanceView';
 import { ProfileView } from './components/ProfileView';
+import { NewGradesNotification } from './components/NewGradesNotification';
 import { api } from './services/api';
+import { detectNewGrades } from './services/gradeNotifications';
 
 function App({ isExtension = false, initialData = null, showOriginalSite = null }) {
   const [sessionData, setSessionData] = useState(initialData ? { data: initialData } : null);
@@ -14,11 +16,17 @@ function App({ isExtension = false, initialData = null, showOriginalSite = null 
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [theme, setTheme] = useState(() => localStorage.getItem('betterscodoc-theme') || 'dark');
   const [photoUrl, setPhotoUrl] = useState(null);
+  const [newGrades, setNewGrades] = useState([]);
 
-  // Set initial bulletin from initialData
+  // Set initial bulletin from initialData and check for new grades
   useEffect(() => {
     if (initialData?.relevé) {
       setCurrentBulletin(initialData);
+      // Détecter les nouvelles notes
+      const detected = detectNewGrades(initialData);
+      if (detected.length > 0) {
+        setNewGrades(detected);
+      }
     }
   }, [initialData]);
 
@@ -42,6 +50,20 @@ function App({ isExtension = false, initialData = null, showOriginalSite = null 
       setPhotoUrl('/services/data.php?q=getStudentPic');
     }
   }, [sessionData]);
+
+  // Check for new grades
+  useEffect(() => {
+    if (activeTab === 'dashboard' && currentBulletin) {
+      try {
+        const grades = detectNewGrades(currentBulletin);
+        if (grades.length > 0) {
+          setNewGrades(grades);
+        }
+      } catch (e) {
+        console.error('Error detecting grades:', e);
+      }
+    }
+  }, [activeTab, currentBulletin]);
 
   const toggleTheme = () => {
     setTheme(prev => prev === 'dark' ? 'light' : 'dark');
@@ -116,6 +138,14 @@ function App({ isExtension = false, initialData = null, showOriginalSite = null 
         </div>
       )}
 
+      {/* Notification de nouvelles notes */}
+      {newGrades.length > 0 && (
+        <NewGradesNotification
+          newGrades={newGrades}
+          onDismiss={() => setNewGrades([])}
+        />
+      )}
+
       <Sidebar
         activeTab={activeTab}
         setActiveTab={setActiveTab}
@@ -155,7 +185,7 @@ function App({ isExtension = false, initialData = null, showOriginalSite = null 
 
         {/* Content */}
         <div className="page-content fade-in">
-          {activeTab === 'dashboard' && <Dashboard data={currentBulletin} />}
+          {activeTab === 'dashboard' && <Dashboard data={currentBulletin} allSemesters={semesters} />}
           {activeTab === 'attendance' && <AttendanceView data={currentBulletin} />}
           {activeTab === 'profile' && (
             <ProfileView

@@ -104,7 +104,7 @@
 }
 
 #better-scodoc-root.light .resource-item {
-  background: rgba(0, 0, 0, 0.04) !important;
+  background: rgba(59, 130, 246, 0.08) !important;
 }
 
 #better-scodoc-root.light .modal-content {
@@ -115,6 +115,30 @@
 #better-scodoc-root.light .user-profile-card {
   background: var(--bg-secondary) !important;
   border: 1px solid var(--glass-border) !important;
+}
+
+#better-scodoc-root.light .eval-item {
+  background: rgba(59, 130, 246, 0.08) !important;
+}
+
+#better-scodoc-root.light .eval-item:hover {
+  background: rgba(59, 130, 246, 0.15) !important;
+}
+
+#better-scodoc-root.light .semester-select {
+  background-color: rgba(59, 130, 246, 0.08) !important;
+  border: 1px solid rgba(59, 130, 246, 0.2) !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23334155' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 12px center !important;
+}
+
+#better-scodoc-root.light .semester-select:hover,
+#better-scodoc-root.light .semester-select:focus {
+  background-color: rgba(59, 130, 246, 0.12) !important;
+  border-color: rgba(59, 130, 246, 0.4) !important;
+  /* Garder la même image sombre ou la changer en bleu */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%232563eb' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E") !important;
 }
 
 /* Base styles scoped to our container */
@@ -938,9 +962,15 @@
   padding-right: 32px !important;
   appearance: none;
   -webkit-appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2394a3b8' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 12px center;
+  transition: all 0.2s ease;
+}
+
+.semester-select:hover {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%233b82f6' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  border-color: rgba(59, 130, 246, 0.4);
 }
 
 /* Stat sublabel */
@@ -1683,4 +1713,513 @@
   color: var(--text-secondary);
   text-align: center;
   width: 100%;
+}
+
+/* ========================================
+   NOUVELLES FONCTIONNALITÉS - v1.1
+   ======================================== */
+
+/* Page Header avec bouton Export */
+.page-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+.page-header-content>div:first-child {
+  flex: 1;
+}
+
+.export-btn {
+  padding: 10px 20px !important;
+  font-size: 14px !important;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.export-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Percentile Badge */
+.percentile-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  background: var(--accent);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 12px;
+  vertical-align: middle;
+}
+
+/* Evolution Chart */
+.evolution-card {
+  padding: 24px;
+  min-height: 280px;
+}
+
+.evolution-chart-container {
+  height: 250px;
+  width: 100%;
+}
+
+.evolution-chart-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  color: var(--text-muted);
+  font-size: 14px;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Simple Bar Chart */
+.simple-chart {
+  padding: 16px 0;
+}
+
+.chart-bars {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 200px;
+  gap: 24px;
+  padding: 0 16px;
+}
+
+.chart-bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  max-width: 80px;
+}
+
+.chart-bar-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  height: 180px;
+  width: 100%;
+}
+
+.chart-bar {
+  width: 28px;
+  border-radius: 6px 6px 0 0;
+  transition: height 0.5s ease;
+  position: relative;
+  min-height: 20px;
+}
+
+.chart-bar-student {
+  background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.chart-bar-student.current {
+  background: linear-gradient(180deg, #60a5fa, #3b82f6);
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.5);
+}
+
+.chart-bar-promo {
+  background: rgba(148, 163, 184, 0.4);
+  width: 20px;
+}
+
+.chart-bar-value {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.chart-bar-label {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.legend-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.legend-dot.student {
+  background: #3b82f6;
+}
+
+.legend-dot.promo {
+  background: rgba(148, 163, 184, 0.6);
+}
+
+/* UE Names Legend */
+.chart-ue-names {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--glass-border);
+  justify-content: center;
+}
+
+.chart-ue-name {
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.chart-ue-name strong {
+  color: #3b82f6;
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+/* New Grades Notification Toast */
+.new-grades-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  min-width: 300px;
+  max-width: 400px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  z-index: 10000;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.new-grades-notification.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.new-grades-notification.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.notification-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--accent), #60a5fa);
+  cursor: pointer;
+}
+
+.notification-icon {
+  font-size: 24px;
+}
+
+.notification-title {
+  flex: 1;
+  font-weight: 600;
+  color: white;
+  font-size: 15px;
+}
+
+.notification-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.notification-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.notification-details {
+  padding: 16px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.notification-grade-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.notification-grade-item:last-child {
+  border-bottom: none;
+}
+
+.notification-grade-code {
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 13px;
+  min-width: 60px;
+}
+
+.notification-grade-desc {
+  flex: 1;
+  font-size: 13px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notification-grade-value {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.notification-hint {
+  padding: 8px 16px 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Light Mode Adjustments for new features */
+#better-scodoc-root.light .new-grades-notification {
+  background: white;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+#better-scodoc-root.light .evolution-card {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* ========================================
+   RESPONSIVE - Nouvelles Fonctionnalités
+   ======================================== */
+
+@media (max-width: 768px) {
+  .page-header-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .export-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 12px;
+  }
+
+  .percentile-badge {
+    display: block;
+    margin-left: 0;
+    margin-top: 6px;
+    width: fit-content;
+  }
+
+  .evolution-card {
+    padding: 16px;
+    min-height: 220px;
+  }
+
+  .evolution-chart-container {
+    height: 200px;
+  }
+
+  .new-grades-notification {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    min-width: unset;
+    max-width: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  .notification-grade-desc {
+    max-width: 120px;
+  }
+
+  .evolution-chart-container {
+    height: 180px;
+  }
+}
+
+/* ========================================
+   UE VALIDATION STATUS BADGES
+   ======================================== */
+
+.ue-status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 12px;
+  white-space: nowrap;
+}
+
+.status-admis {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.status-compense {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.status-ajourne {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.status-attente {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.status-defaillant {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.status-rattrapage {
+  background: rgba(168, 85, 247, 0.15);
+  color: #a855f7;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.status-absent {
+  background: rgba(107, 114, 128, 0.15);
+  color: #6b7280;
+  border: 1px solid rgba(107, 114, 128, 0.3);
+}
+
+.status-autre {
+  background: rgba(107, 114, 128, 0.15);
+  color: #6b7280;
+  border: 1px solid rgba(107, 114, 128, 0.3);
+}
+
+/* Light mode overrides */
+#better-scodoc-root.light .status-admis {
+  background: rgba(34, 197, 94, 0.1);
+}
+
+#better-scodoc-root.light .status-ajourne {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+@media (max-width: 768px) {
+  .ue-status {
+    font-size: 11px;
+    padding: 3px 8px;
+    margin-right: 8px;
+  }
+}
+
+/* ========================================
+   SAE CARDS & SECTION LABELS
+   ======================================== */
+
+.resources-section-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.ue-saes {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--glass-border);
+}
+
+.sae-code {
+  color: #a855f7 !important;
+  background: transparent !important;
+}
+
+.sae-card {
+  border-left: 3px solid var(--glass-border);
+}
+
+.resource-card-code.sae-code {
+  background: linear-gradient(135deg, #a855f7, #7c3aed);
+  color: white !important;
+}
+
+/* Success text for decision */
+.success-text {
+  color: #22c55e !important;
+}
+
+/* Chart moyenne bar styling */
+.chart-bar-general {
+  border-left: 2px dashed var(--glass-border);
+  padding-left: 12px;
+  margin-left: 8px;
+}
+
+.chart-bar-moyenne {
+  background: linear-gradient(180deg, #60a5fa, #3b82f6) !important;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4) !important;
+}
+
+/* Responsive adjustments for SAE section */
+@media (max-width: 768px) {
+  .resources-section-label {
+    font-size: 10px;
+  }
+
+  .ue-saes {
+    margin-top: 8px;
+    padding-top: 8px;
+  }
 }
