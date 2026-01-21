@@ -23,7 +23,7 @@
     *   **Visualisation des UEs** : Statut de validation (Admis/Ajourné) et moyennes visibles directement.
     *   **SAÉ & Portfolio** : Section dédiée pour suivre vos Situations d'Apprentissage et d'Évaluation.
     *   **Notes Détaillées** : Cliquez sur n'importe quelle ressource pour voir le détail des évaluations, les coefficients et les statistiques de la promo.
-*   **Export PDF** : Générez un bulletin propre et formaté pour l'impression ou l'archivage en un clic.
+*   **Export PDF** (only chrome based) : Générez un bulletin propre et formaté pour l'impression ou l'archivage en un clic.
 *   **Notifications de Notes** : Soyez alerté des nouvelles notes directement lors de l'ouverture (badge "Nouveau").
 *   **Navigation Intuitive** : Barre latérale avec sélecteur de semestre amélioré pour naviguer dans votre historique.
 
